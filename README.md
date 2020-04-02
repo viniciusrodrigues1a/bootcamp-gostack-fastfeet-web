@@ -6,7 +6,7 @@
 </h1>
 
 <p align="center">
-  Esse projeto foi desenvolvido como uma solução ao desafio 2 e 3 da fase 02 do <a href="https://rocketseat.com.br/bootcamp">Bootcamp GoStack</a> 🎓
+  Esse projeto foi desenvolvido como uma solução ao desafio 09 da fase 05 do <a href="https://rocketseat.com.br/bootcamp">Bootcamp GoStack</a> 🎓
 </p>
 
 ## :page_facing_up: Índice
