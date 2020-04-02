@@ -18,7 +18,7 @@
 
 ## 🧐 Sobre <a name = "about"></a>
 
-App de agendamento de serviços.
+App para uma transportadora fictícia, o FastFeet.
 
 ## 🏁 Primeiros passos <a name = "getting_started"></a>
 
