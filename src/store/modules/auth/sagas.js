@@ -17,10 +17,17 @@ function* signIn({ payload }) {
 
     yield put(signInSuccess(user, token));
 
-    // history.push('/');
+    history.push('/deliveries');
   } catch (err) {
     yield put(signInFailure());
   }
 }
 
-export default all([takeLatest('@auth/SIGN_IN_REQUEST', signIn)]);
+function signOut() {
+  history.push('/');
+}
+
+export default all([
+  takeLatest('@auth/SIGN_IN_REQUEST', signIn),
+  takeLatest('@auth/SIGN_OUT', signOut),
+]);
