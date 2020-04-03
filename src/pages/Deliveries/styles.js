@@ -24,7 +24,7 @@ export const Container = styled.div`
         border-radius: 6px;
       }
 
-      button {
+      a {
         display: flex;
         justify-content: center;
         align-items: center;
