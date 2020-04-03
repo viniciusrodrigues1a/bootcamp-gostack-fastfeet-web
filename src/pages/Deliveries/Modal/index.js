@@ -27,6 +27,7 @@ export default function Modal({ show, setShow, delivery }) {
 
   const timeZone = useCallback(
     () => Intl.DateTimeFormat().resolvedOptions().timeZone,
+    [],
   );
 
   const startDate = useMemo(() => {
@@ -36,13 +37,17 @@ export default function Modal({ show, setShow, delivery }) {
         "d'/'MM'/'y",
       );
     }
+
+    return '';
   }, [delivery, timeZone]);
 
   const endDate = useMemo(() => {
     if (delivery.end_date) {
       return format(utcToZonedTime(delivery.end_date, timeZone), "d'/'MM'/'y");
     }
-  });
+
+    return '';
+  }, [delivery, timeZone]);
 
   return (
     <Container show={show}>
