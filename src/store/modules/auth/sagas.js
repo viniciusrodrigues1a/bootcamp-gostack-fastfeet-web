@@ -1,4 +1,5 @@
 import { all, call, put, takeLatest } from 'redux-saga/effects';
+import { toast } from 'react-toastify';
 
 import api from '~/services/api';
 import history from '~/services/history';
@@ -20,6 +21,10 @@ function* signIn({ payload }) {
     history.push('/deliveries');
   } catch (err) {
     yield put(signInFailure());
+    toast.error(
+      'Falha ao tentar fazer login, verifique as informações inseridas.',
+      { className: 'toast-custom-background' },
+    );
   }
 }
 
