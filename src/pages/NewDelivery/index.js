@@ -27,7 +27,7 @@ export default function NewDelivery() {
       });
     } catch (err) {
       toast.error('Falha ao criar delivery!', {
-        className: 'toast-custom-background',
+        className: 'toast-custom-background toast-custom-background-error',
       });
     }
   }

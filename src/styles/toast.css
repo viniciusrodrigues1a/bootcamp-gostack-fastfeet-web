@@ -3,3 +3,7 @@
   box-shadow: 0 0 0.5rem 0.2rem rgba(0, 0, 0, 0.6);
   border-radius: 6px;
 }
+
+.toast-custom-background-error {
+  background: #e75f40 !important;
+}

@@ -23,7 +23,7 @@ function* signIn({ payload }) {
     yield put(signInFailure());
     toast.error(
       'Falha ao tentar fazer login, verifique as informações inseridas.',
-      { className: 'toast-custom-background' },
+      { className: 'toast-custom-background toast-custom-background-error' },
     );
   }
 }
