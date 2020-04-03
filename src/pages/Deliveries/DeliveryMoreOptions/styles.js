@@ -14,7 +14,7 @@ export const Container = styled.td`
     width: 6rem;
     z-index: 1;
     position: absolute;
-    transform: translateX(-1.5rem);
+    transform: translateX(-2rem);
     background-color: #ffffff;
     box-shadow: 0 0 2px #00000026;
 
