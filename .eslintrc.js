@@ -7,6 +7,7 @@ module.exports = {
     'plugin:react/recommended',
     'airbnb',
     'prettier/react',
+    'prettier'
   ],
   globals: {
     Atomics: 'readonly',
@@ -44,7 +45,8 @@ module.exports = {
     'no-multi-spaces': 'off',
     'indent': 'off',
     'operator-linebreak': 'off',
-    'object-curly-newline': 'off'
+    'object-curly-newline': 'off',
+    'no-plusplus': 'off'
   },
   settings: {
     "import/resolver": {
