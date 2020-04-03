@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 
 import { FiPlus } from 'react-icons/fi';
 
@@ -87,10 +88,10 @@ export default function Deliveries() {
               onChange={e => setSearch(e.target.value)}
             />
 
-            <button type="button">
+            <Link to="/deliveries/new">
               <FiPlus color="#fff" size={26} />
               <span>Cadastrar</span>
-            </button>
+            </Link>
           </div>
 
           <DeliveriesTable>
