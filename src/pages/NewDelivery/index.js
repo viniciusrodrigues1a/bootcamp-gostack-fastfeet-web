@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { FiChevronLeft, FiCheck } from 'react-icons/fi';
+
 import { toast } from 'react-toastify';
 
 import api from '~/services/api';
 
-import { Container, Form } from './styles';
+import FormPage from '~/components/FormPage';
+import { Form } from './styles';
 import Select from './Select';
 
 export default function NewDelivery() {
@@ -33,57 +33,42 @@ export default function NewDelivery() {
   }
 
   return (
-    <Container>
-      <main>
-        <div>
-          <h1>Cadastro de encomendas</h1>
+    <FormPage.Container>
+      <FormPage.Title
+        message="Cadastro de encomendas"
+        goBackLink="/deliveries"
+        handleConfirm={handleCreateDelivery}
+      />
 
+      <Form>
+        <div>
           <div>
-            <Link type="button" to="/deliveries">
-              <button type="button">
-                <span>
-                  <FiChevronLeft size={26} color="#fff" /> Voltar
-                </span>
-              </button>
-            </Link>
-            <button type="button" onClick={handleCreateDelivery}>
-              <span>
-                <FiCheck size={26} color="#fff" /> Salvar
-              </span>
-            </button>
+            <span>Destinatário</span>
+            <Select
+              urlToFetch="/recipients"
+              placeholder="Selecionar..."
+              onChange={e => setRecipientId(e.value)}
+            />
+          </div>
+          <div>
+            <span>Entregador</span>
+            <Select
+              urlToFetch="/deliverymen"
+              placeholder="Selecionar..."
+              onChange={e => setDeliverymanId(e.value)}
+            />
           </div>
         </div>
 
-        <Form>
-          <div>
-            <div>
-              <span>Destinatário</span>
-              <Select
-                urlToFetch="/recipients"
-                placeholder="Selecionar..."
-                onChange={e => setRecipientId(e.value)}
-              />
-            </div>
-            <div>
-              <span>Entregador</span>
-              <Select
-                urlToFetch="/deliverymen"
-                placeholder="Selecionar..."
-                onChange={e => setDeliverymanId(e.value)}
-              />
-            </div>
-          </div>
-
-          <label htmlFor="product-name">Nome do produto</label>
-          <input
-            id="product-name"
-            type="text"
-            placeholder="Yamaha SX7"
-            value={productName}
-            onChange={e => setProductName(e.target.value)}
-          />
-        </Form>
-      </main>
-    </Container>
+        <label htmlFor="product-name">Nome do produto</label>
+        <input
+          id="product-name"
+          type="text"
+          placeholder="Yamaha SX7"
+          value={productName}
+          onChange={e => setProductName(e.target.value)}
+        />
+      </Form>
+    </FormPage.Container>
   );
 }
