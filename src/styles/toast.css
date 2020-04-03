@@ -1,0 +1,5 @@
+.toast-custom-background {
+  background: #7d40e7;
+  box-shadow: 0 0 0.5rem 0.2rem rgba(0, 0, 0, 0.6);
+  border-radius: 6px;
+}
