@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { HtmlBackground } from './styles';
 
@@ -13,3 +14,14 @@ export default function DefaultLayout({ children }) {
     </>
   );
 }
+
+DefaultLayout.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.arrayOf(PropTypes.node),
+  ]),
+};
+
+DefaultLayout.defaultProps = {
+  children: null,
+};
