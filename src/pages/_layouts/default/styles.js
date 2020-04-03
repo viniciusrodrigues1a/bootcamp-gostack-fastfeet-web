@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
-export const Wrapper = styled.div`
-  height: 100%;
-  height: calc(100% - 6rem);
-  background-color: #f5f5f5;
+export const HtmlBackground = createGlobalStyle`
+  html {
+    background-color: #f5f5f5;
+  }
 `;
