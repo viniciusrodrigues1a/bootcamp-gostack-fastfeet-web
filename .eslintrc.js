@@ -46,7 +46,8 @@ module.exports = {
     'indent': 'off',
     'operator-linebreak': 'off',
     'object-curly-newline': 'off',
-    'no-plusplus': 'off'
+    'no-plusplus': 'off',
+    'no-alert': 'off'
   },
   settings: {
     "import/resolver": {
