@@ -4,6 +4,7 @@ export const Container = styled.header`
   border-bottom: 1px solid #ddd;
   background: #fff;
   width: 100%;
+  padding: 0 2rem;
 `;
 
 export const Content = styled.div`
@@ -12,7 +13,6 @@ export const Content = styled.div`
   justify-content: space-between;
   align-items: center;
   max-width: 100rem;
-  padding: 1rem 2rem;
   height: 6rem;
 `;
 
