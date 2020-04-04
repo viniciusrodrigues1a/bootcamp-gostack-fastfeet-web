@@ -24,7 +24,7 @@ export default function Recipients() {
       const response = await api.get(`/recipients?search=${search}`);
 
       setTotalRecipients(response.data.total);
-      setRecipients(response.data.recipients);
+      setRecipients(response.data.payload);
     })();
   }, [search]);
 

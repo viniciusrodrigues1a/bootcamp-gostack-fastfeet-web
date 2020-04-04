@@ -25,7 +25,7 @@ export default function Problems() {
       const response = await api.get('/problems');
 
       setTotalProblems(response.data.total);
-      setProblems(response.data.deliveryProblems);
+      setProblems(response.data.payload);
     })();
   }, []);
 

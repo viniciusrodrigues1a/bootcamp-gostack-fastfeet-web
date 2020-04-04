@@ -35,7 +35,7 @@ export default function Deliverymen() {
 
       setTotalDeliverymen(response.data.total);
 
-      const data = response.data.deliverymen.map(deliveryman => {
+      const data = response.data.payload.map(deliveryman => {
         const [firstName, secondName] = deliveryman.name.split(' ');
         const firstLetter = firstName ? firstName[0] : '';
         const secondLetter = secondName ? secondName[0] : '';

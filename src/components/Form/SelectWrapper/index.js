@@ -13,7 +13,7 @@ export default function Select(props) {
     async searchQuery => {
       const response = await api.get(`${urlToFetch}?search=${searchQuery}`);
 
-      const data = response.data.map(d => ({
+      const data = response.data.payload.map(d => ({
         value: d.id,
         label: d.name,
       }));

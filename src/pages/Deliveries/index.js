@@ -74,15 +74,15 @@ export default function Deliveries() {
       if (filter === 'problems') {
         const problemsResponse = await api.get('/problems');
 
-        const deliveriesIdWithProblems = problemsResponse.data.deliveryProblems.map(
+        const deliveriesIdWithProblems = problemsResponse.data.payload.map(
           p => p.delivery.id,
         );
 
-        data = response.data.deliveries.filter(
+        data = response.data.payload.filter(
           d => deliveriesIdWithProblems.indexOf(d.id) >= 0,
         );
       } else {
-        data = response.data.deliveries;
+        data = response.data.payload;
       }
 
       const filteredDeliveries = data.map(delivery => {
