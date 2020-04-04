@@ -41,10 +41,11 @@ export default function Select(props) {
 
   return (
     <AsyncSelect
+      cacheOptions
       loadOptions={loadOptions}
       defaultOptions={optionsSelect}
       onInputChange={handleInputChange}
-      cacheOptions
+      placeholder="Selecionar..."
       loadingMessage={loadingMessage}
       {...props}
     />
