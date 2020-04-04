@@ -8,27 +8,28 @@ import Container from '~/components/Container';
 import ActionButtons from '~/components/ActionButtons';
 import Form from '~/components/Form';
 
-export default function NewDelivery() {
-  const [recipientId, setRecipientId] = useState({});
-  const [deliverymanId, setDeliverymanId] = useState({});
+export default function EditDelivery(props) {
+  const { id } = props.match.params;
+  const [recipientId, setRecipientId] = useState(null);
+  const [deliverymanId, setDeliverymanId] = useState(null);
   const [product, setProduct] = useState('');
 
-  async function handleCreateNewDelivery() {
-    const confirmation = window.confirm('Criar nova entrega?');
+  async function handleEditDelivery() {
+    const confirmation = window.confirm('Atualizar entrega?');
 
     if (confirmation) {
       try {
-        await api.post('/deliveries', {
+        await api.put(`/deliveries/${id}`, {
           recipient_id: recipientId,
           deliveryman_id: deliverymanId,
           product,
         });
 
-        toast.success('Entrega criada com sucesso!', {
+        toast.success('Entrega atualizada com sucesso!', {
           className: 'toast-custom-background',
         });
       } catch (err) {
-        toast.error('Falha ao criar entrega.', {
+        toast.error('Falha ao atualizar entrega.', {
           className: 'toast-custom-background toast-custom-background-error',
         });
       }
@@ -39,13 +40,13 @@ export default function NewDelivery() {
     <Container>
       <ActionButtons.Container>
         <ActionButtons.FlexContainer>
-          <ActionButtons.Title>Cadastro de encomendas</ActionButtons.Title>
+          <ActionButtons.Title>Edição de encomendas</ActionButtons.Title>
 
           <div>
             <ActionButtons.GoBackLink to="/deliveries">
               <FiChevronLeft color="#fff" size={22} /> Voltar
             </ActionButtons.GoBackLink>
-            <ActionButtons.ConfirmButton onClick={handleCreateNewDelivery}>
+            <ActionButtons.ConfirmButton onClick={handleEditDelivery}>
               <FiCheck color="#fff" size={22} /> Salvar
             </ActionButtons.ConfirmButton>
           </div>

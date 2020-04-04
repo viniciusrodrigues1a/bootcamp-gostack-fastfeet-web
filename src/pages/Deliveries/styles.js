@@ -1,77 +1,16 @@
 import styled from 'styled-components';
 import { darken, setLightness, setSaturation } from 'polished';
 
-export const Container = styled.div`
+export const ActionButtonsFlexWrapper = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 
-  main {
-    width: 70%;
-    max-width: 100rem;
-    margin-top: 3.5rem;
+  @media (max-width: 57.5rem) {
+    margin-top: 1rem;
+    flex-direction: column;
 
-    > div {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 2.25rem;
-
-      input {
-        border: 1px solid #ddd;
-        background: #fff;
-        padding: 0.8rem 1.8rem;
-        border-radius: 6px;
-      }
-
-      a {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: #7d40e7;
-        border: 0;
-        border-radius: 6px;
-        padding: 0.4rem 1.4rem;
-
-        span {
-          text-transform: uppercase;
-          font-weight: bold;
-          color: #fff;
-          margin-left: 0.5rem;
-        }
-
-        &:hover {
-          background: ${darken(0.04, '#7d40e7')};
-        }
-      }
+    button {
+      margin-left: 0;
     }
-
-    @media (max-width: 65rem) {
-      width: 96%;
-    }
-  }
-`;
-
-export const DeliveriesTable = styled.table`
-  width: 100%;
-  border-collapse: collapse;
-
-  tbody tr {
-    background-color: #fff;
-  }
-
-  th {
-    text-align: start;
-    color: #444;
-  }
-
-  td {
-    color: #666;
-  }
-
-  td,
-  th {
-    padding: 1.25rem;
   }
 `;
 
@@ -137,5 +76,59 @@ export const DeliveryStatus = styled.td`
       left: 0;
       margin: 0.1875rem 0 0.1875rem 0.4rem;
     }
+  }
+`;
+
+export const ModalContent = styled.div`
+  p {
+    color: #444;
+    font-weight: bold;
+  }
+
+  span {
+    display: block;
+    color: #666;
+  }
+
+  p,
+  span {
+    line-height: 1.5rem;
+  }
+`;
+
+export const InfoContainer = styled.div`
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #ddd;
+`;
+
+export const DatesInfoContainer = styled.div`
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #ddd;
+  div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  div span span {
+    color: #444;
+    font-weight: bold;
+    display: inline-block;
+  }
+`;
+
+export const SignatureInfoContainer = styled.div`
+  div {
+    display: flex;
+    justify-content: center;
+  }
+
+  img {
+    min-width: 3rem;
+    min-height: 3rem;
+    max-width: 8rem;
+    max-height: 8rem;
+    margin: 1rem 0;
   }
 `;
