@@ -170,8 +170,6 @@ export default function Deliverymen() {
           </tbody>
         </Table>
 
-        {console.log(totalDeliverymen, page)}
-
         {!search && (
           <PaginationButtons
             nextFunc={nextPage}

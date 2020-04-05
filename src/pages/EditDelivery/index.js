@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FiChevronLeft, FiCheck } from 'react-icons/fi';
 import { toast } from 'react-toastify';
+import PropTypes from 'prop-types';
 
 import api from '~/services/api';
 
@@ -83,3 +84,11 @@ export default function EditDelivery(props) {
     </Container>
   );
 }
+
+EditDelivery.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }),
+  }).isRequired,
+};

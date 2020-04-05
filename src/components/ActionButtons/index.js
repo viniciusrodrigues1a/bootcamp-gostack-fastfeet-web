@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import {
   ActionButtonsContainer,
@@ -52,6 +53,60 @@ function ConfirmButton(props) {
     </ActionButtonsConfirmButton>
   );
 }
+
+const childrenPropTypes = PropTypes.oneOfType([
+  PropTypes.node,
+  PropTypes.arrayOf(PropTypes.node),
+]);
+
+Container.propTypes = {
+  children: childrenPropTypes,
+};
+
+Container.defaultProps = {
+  children: null,
+};
+
+FlexContainer.propTypes = {
+  children: childrenPropTypes,
+};
+
+FlexContainer.defaultProps = {
+  children: null,
+};
+
+Title.propTypes = {
+  children: childrenPropTypes,
+};
+
+Title.defaultProps = {
+  children: null,
+};
+
+SearchInput.propTypes = {
+  children: childrenPropTypes,
+};
+
+SearchInput.defaultProps = {
+  children: null,
+};
+
+GoBackLink.propTypes = {
+  children: childrenPropTypes,
+  to: PropTypes.string.isRequired,
+};
+
+GoBackLink.defaultProps = {
+  children: null,
+};
+
+ConfirmButton.propTypes = {
+  children: childrenPropTypes,
+};
+
+ConfirmButton.defaultProps = {
+  children: null,
+};
 
 const ActionButtons = {
   Container,

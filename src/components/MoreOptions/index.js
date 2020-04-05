@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 import { FiMoreHorizontal } from 'react-icons/fi';
 
@@ -37,6 +38,27 @@ function Button(props) {
 
   return <StyledButton {...props}>{children}</StyledButton>;
 }
+
+const childrenPropTypes = PropTypes.oneOfType([
+  PropTypes.node,
+  PropTypes.arrayOf(PropTypes.node),
+]);
+
+Container.propTypes = {
+  children: childrenPropTypes,
+};
+
+Container.defaultProps = {
+  children: null,
+};
+
+Button.propTypes = {
+  children: childrenPropTypes,
+};
+
+Button.defaultProps = {
+  children: null,
+};
 
 const MoreOptions = {
   Container,

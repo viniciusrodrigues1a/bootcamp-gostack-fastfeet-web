@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MdImage } from 'react-icons/md';
+import PropTypes from 'prop-types';
 
 import api from '~/services/api';
 
@@ -45,3 +46,13 @@ export default function AvatarInput({ inputRef, onInputChange, filePath }) {
     </Container>
   );
 }
+
+AvatarInput.propTypes = {
+  onInputChange: PropTypes.func,
+  filePath: PropTypes.string,
+};
+
+AvatarInput.defaultProps = {
+  onInputChange: () => {},
+  filePath: '',
+};

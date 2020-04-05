@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FiChevronLeft, FiCheck } from 'react-icons/fi';
 import { toast } from 'react-toastify';
+import PropTypes from 'prop-types';
 
 import api from '~/services/api';
 
@@ -8,7 +9,7 @@ import Container from '~/components/Container';
 import ActionButtons from '~/components/ActionButtons';
 import Form from '~/components/Form';
 
-export default function NewRecipient(props) {
+export default function EditRecipient(props) {
   const [name, setName] = useState('');
   const [street, setStreet] = useState('');
   const [houseNumber, setHouseNumber] = useState('');
@@ -154,3 +155,11 @@ export default function NewRecipient(props) {
     </Container>
   );
 }
+
+EditRecipient.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }),
+  }).isRequired,
+};

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import history from '~/services/history';
 
@@ -14,3 +15,15 @@ export default function LinkWrapper({ to, children }) {
     </StyledLink>
   );
 }
+
+LinkWrapper.propTypes = {
+  to: PropTypes.string.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.arrayOf(PropTypes.node),
+  ]),
+};
+
+LinkWrapper.defaultProps = {
+  children: null,
+};

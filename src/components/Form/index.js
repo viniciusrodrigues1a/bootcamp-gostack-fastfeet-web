@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { FormWrapper, LabelWrapper, InputWrapper, RowWrapper } from './styles';
 import SelectWrapper from './SelectWrapper';
@@ -25,6 +26,51 @@ function Input(props) {
 function Select(props) {
   return <SelectWrapper {...props} />;
 }
+
+const childrenPropTypes = PropTypes.oneOfType([
+  PropTypes.node,
+  PropTypes.arrayOf(PropTypes.node),
+]);
+
+Wrapper.propTypes = {
+  children: childrenPropTypes,
+};
+
+Wrapper.defaultProps = {
+  children: null,
+};
+
+Row.propTypes = {
+  children: childrenPropTypes,
+};
+
+Row.defaultProps = {
+  children: null,
+};
+
+Label.propTypes = {
+  children: childrenPropTypes,
+};
+
+Label.defaultProps = {
+  children: null,
+};
+
+Input.propTypes = {
+  children: childrenPropTypes,
+};
+
+Input.defaultProps = {
+  children: null,
+};
+
+Select.propTypes = {
+  children: childrenPropTypes,
+};
+
+Select.defaultProps = {
+  children: null,
+};
 
 const Form = {
   Wrapper,

@@ -27,4 +27,12 @@ export default function Modal({ show, setShow, children }) {
 Modal.propTypes = {
   show: PropTypes.bool.isRequired,
   setShow: PropTypes.func.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.arrayOf(PropTypes.node),
+  ]),
+};
+
+Modal.defaultProps = {
+  children: null,
 };
