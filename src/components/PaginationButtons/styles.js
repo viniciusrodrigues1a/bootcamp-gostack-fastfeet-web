@@ -29,8 +29,10 @@ export const Container = styled.div`
 
 export const LeftArrow = styled(MdChevronLeft)`
   color: ${props => (!props.disabled ? '#7D40E7' : '#aaa')};
+  opacity: ${props => (!props.disabled ? 1 : 0.5)};
 `;
 
 export const RightArrow = styled(MdChevronRight)`
   color: ${props => (!props.disabled ? '#7D40E7' : '#aaa')};
+  opacity: ${props => (!props.disabled ? 1 : 0.5)};
 `;
