@@ -33,6 +33,8 @@ App para uma transportadora fictícia, o FastFeet.
 Estas instruçōes te darão uma cópia funcional do projeto na sua máquina local para desenvolvimento e testes.
 ### Pré-requisitos
 
+- [Rodar a aplicação backend](https://github.com/viniciusrodrigues1a/bootcamp-gostack-fastfeet-api)
+
 Instalar as dependências
 
 ```sh
