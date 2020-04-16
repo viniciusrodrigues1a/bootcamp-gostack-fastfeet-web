@@ -85,10 +85,16 @@ export default function Deliveries() {
         data = response.data.payload;
       }
 
+      const deliverymenColor = {};
+
       const filteredDeliveries = data.map(delivery => {
         const [firstName, secondName] = delivery.deliveryman.name.split(' ');
         const firstLetter = firstName ? firstName[0] : '';
         const secondLetter = secondName ? secondName[0] : '';
+
+        if (!(String(delivery.deliveryman.id) in deliverymenColor)) {
+          deliverymenColor[String(delivery.deliveryman.id)] = getRandomColor();
+        }
 
         return {
           ...delivery,
@@ -96,7 +102,8 @@ export default function Deliveries() {
           deliveryman: {
             ...delivery.deliveryman,
             twoFirstLetters: `${firstLetter}${secondLetter}`,
-            twoFirstLettersColor: getRandomColor(),
+            twoFirstLettersColor:
+              deliverymenColor[String(delivery.deliveryman.id)],
           },
         };
       });
