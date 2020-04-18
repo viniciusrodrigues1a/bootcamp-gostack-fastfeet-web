@@ -38,6 +38,7 @@ export default function Deliveries() {
     signature: {},
   });
   const [filter, setFilter] = useState('all');
+  const [deliverymenColor, setDeliverymenColor] = useState({});
 
   const getRandomColor = useCallback(() => {
     const letters = '0123456789ABCDEF';
@@ -85,15 +86,16 @@ export default function Deliveries() {
         data = response.data.payload;
       }
 
-      const deliverymenColor = {};
-
       const filteredDeliveries = data.map(delivery => {
         const [firstName, secondName] = delivery.deliveryman.name.split(' ');
         const firstLetter = firstName ? firstName[0] : '';
         const secondLetter = secondName ? secondName[0] : '';
 
-        if (!(String(delivery.deliveryman.id) in deliverymenColor)) {
-          deliverymenColor[String(delivery.deliveryman.id)] = getRandomColor();
+        const deliverymanId = String(delivery.deliveryman.id);
+
+        if (!(deliverymanId in deliverymenColor)) {
+          deliverymenColor[deliverymanId] = getRandomColor();
+          setDeliverymenColor(deliverymenColor);
         }
 
         return {
@@ -102,15 +104,21 @@ export default function Deliveries() {
           deliveryman: {
             ...delivery.deliveryman,
             twoFirstLetters: `${firstLetter}${secondLetter}`,
-            twoFirstLettersColor:
-              deliverymenColor[String(delivery.deliveryman.id)],
+            twoFirstLettersColor: deliverymenColor[deliverymanId],
           },
         };
       });
 
       setDeliveries(filteredDeliveries);
     })();
-  }, [search, getRandomColor, getDeliveryStatus, filter, page]);
+  }, [
+    search,
+    getRandomColor,
+    getDeliveryStatus,
+    filter,
+    page,
+    deliverymenColor,
+  ]);
 
   const timeZone = useMemo(
     () => Intl.DateTimeFormat().resolvedOptions().timeZone,
