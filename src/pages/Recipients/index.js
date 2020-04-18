@@ -86,8 +86,8 @@ export default function Recipients() {
           <ActionButtons.FlexContainer>
             <ActionButtons.SearchInput
               placeholder="Buscar por destinatários"
-              value={search}
-              onChange={e => setSearch(e.target.value)}
+              useDebounce
+              onDebounce={e => setSearch(e.value)}
             />
             <div>
               <ActionButtons.ConfirmButton onClick={handleCreateNewRecipient}>

@@ -109,8 +109,8 @@ export default function Deliverymen() {
           <ActionButtons.FlexContainer>
             <ActionButtons.SearchInput
               placeholder="Buscar por entregadores"
-              value={search}
-              onChange={e => setSearch(e.target.value)}
+              useDebounce
+              onDebounce={e => setSearch(e.value)}
             />
             <div>
               <ActionButtons.ConfirmButton onClick={handleCreateNewDeliveryman}>

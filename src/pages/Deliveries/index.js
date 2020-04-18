@@ -211,8 +211,8 @@ export default function Deliveries() {
           <ActionButtons.FlexContainer>
             <ActionButtons.SearchInput
               placeholder="Buscar por encomendas"
-              value={search}
-              onChange={e => setSearch(e.target.value)}
+              useDebounce
+              onDebounce={e => setSearch(e.value)}
             />
             <ActionButtonsFlexWrapper>
               <div style={{ width: '15rem' }}>
