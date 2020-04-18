@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import _ from 'lodash';
 
 import {
   ActionButtonsContainer,
@@ -31,7 +32,24 @@ function Title(props) {
 }
 
 function SearchInput(props) {
-  return <ActionButtonsSearchInput {...props} />;
+  const { useDebounce, onDebounce, onChange } = props;
+  const inputRef = useRef();
+
+  const [debouncedFuncCall] = useState(() =>
+    _.debounce(() => onDebounce(inputRef.current), 500),
+  );
+
+  function handleChange() {
+    debouncedFuncCall();
+  }
+
+  return (
+    <ActionButtonsSearchInput
+      {...props}
+      onChange={e => (useDebounce ? handleChange() : onChange(e))}
+      ref={inputRef}
+    />
+  );
 }
 
 function GoBackLink(props) {
@@ -85,10 +103,16 @@ Title.defaultProps = {
 
 SearchInput.propTypes = {
   children: childrenPropTypes,
+  useDebounce: PropTypes.bool,
+  onDebounce: PropTypes.func,
+  onChange: PropTypes.func,
 };
 
 SearchInput.defaultProps = {
   children: null,
+  useDebounce: false,
+  onDebounce: () => {},
+  onChange: () => {},
 };
 
 GoBackLink.propTypes = {
