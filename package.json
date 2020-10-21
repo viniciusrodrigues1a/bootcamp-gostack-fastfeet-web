@@ -12,7 +12,7 @@
     "date-fns-tz": "^1.0.10",
     "history": "^4.10.1",
     "immer": "^6.0.3",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "polished": "^3.5.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
